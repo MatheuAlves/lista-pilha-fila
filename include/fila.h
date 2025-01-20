@@ -16,7 +16,7 @@ typedef struct {
 // Funções da fila
 void criarFila(Fila* fila);
 void enfileirar(Fila* fila, Cliente cliente);
-void desenfileirar(Fila* fila);
+void atender(Fila* fila);
 void exibirFila(Fila* fila);
 int filaVazia(Fila* fila);
 int quantidadeFila(Fila* fila);

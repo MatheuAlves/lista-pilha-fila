@@ -37,11 +37,11 @@ int validarCPF(const char* cpf) {
 
 int validarPrioridade(int prioridade) {
     if (prioridade == 1 || prioridade == 2  || prioridade == 3) {
-        return 0;
+        return 1;
     }
     else{
         printf("Erro: Você digitou um valor inválido!\n");
-        return 1; 
+        return 0; 
     }
 }
 
@@ -61,11 +61,12 @@ Cliente cadastrarCliente() {
     do {
         printf("Digite a prioridade (1: Alta, 2: Média, 3: Baixa): ");
         scanf("%d", &prioridade);
-    } while (validarPrioridade(prioridade));
+    } while (!validarPrioridade(prioridade));
     
-
-    printf("Digite o número de itens no carrinho: ");
-    scanf("%d", &numeroItens);
+    do {
+        printf("Digite o número de itens no carrinho: ");
+        scanf("%d", &numeroItens);
+    } while (!(numeroItens > 0));
 
     Cliente cliente = criarCliente(nome, cpf, prioridade, numeroItens);
 

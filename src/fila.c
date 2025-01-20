@@ -6,7 +6,6 @@
 void criarFila(Fila* fila) {
     fila->frente = NULL;
     fila->tras = NULL;
-    printf("FILA CRIADA \n");
 }
 
 // Função para enfileirar um cliente
@@ -54,10 +53,10 @@ void enfileirar(Fila* fila, Cliente cliente) {
 }
 
 
-// Função para desenfileirar um cliente
-void desenfileirar(Fila* fila) {
+// Função para atender um cliente
+void atender(Fila* fila) {
     if (filaVazia(fila)) {
-        printf("Fila vazia! Não há clientes para remover.\n");
+        printf("Fila vazia! Não há clientes para atender.\n");
         return;
     }
 

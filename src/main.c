@@ -3,7 +3,7 @@
 #include <stdio.h>
 
 int main() {
-    int qtd_caixas = 1;
+    int qtd_caixas = 5;
     int id;
     Caixa caixas[qtd_caixas];
     Fila* fila;
@@ -31,16 +31,20 @@ int main() {
                 break;
             case 1:
                 cliente = cadastrarCliente();
-                printf("Digite o ID do caixa que deseja inserir o cliente: ");
-                scanf("%d", &id);
+                do{
+                    printf("Digite o ID do caixa que deseja inserir o cliente: ");
+                    scanf("%d", &id);
+                } while (!(validaCaixa(caixas[id-1], qtd_caixas, id)));
                 fila = getFila(&caixas[id-1]);
                 enfileirar(fila, cliente);
                 break;
             case 2:
-                printf("Digite o ID do caixa que deseja atender o cliente: ");
-                scanf("%d", &id);
+                do{
+                    printf("Digite o ID do caixa que deseja atender o cliente: ");
+                    scanf("%d", &id);
+                } while (!(validaCaixa(caixas[id-1], qtd_caixas, id)));
                 fila = getFila(&caixas[id-1]);
-                desenfileirar(fila);
+                atender(fila);
                 break;
             case 3:
                 estadoCaixa(caixas, qtd_caixas);
@@ -49,7 +53,7 @@ int main() {
                 printf("\nFILAS:\n");
                 for(int i = 0; i < qtd_caixas; i++){
                     printf("Caixa: %d\n", i+1);
-                    fila = getFila(&caixas[id-1]);
+                    fila = getFila(&caixas[i]);
                     exibirFila(fila);
                     printf("----------------------------------------------------------\n");
                 }
@@ -57,7 +61,7 @@ int main() {
             case 5:
                 printf("\nCAIXAS:\n");
                 for(int i = 0; i < qtd_caixas; i++){
-                    exibirCaixa(&caixas[id-1]);
+                    exibirCaixa(&caixas[i]);
                     printf("----------------------------------------------------------\n");
                 }
                 break;
