@@ -32,7 +32,7 @@ int main() {
             case 1:
                 cliente = cadastrarCliente();
                 do{
-                    printf("Digite o ID do caixa que deseja inserir o cliente: ");
+                    printf("\nDigite o ID do caixa que deseja inserir o cliente: ");
                     scanf("%d", &id);
                 } while (!(validaCaixa(caixas[id-1], qtd_caixas, id)));
                 fila = getFila(&caixas[id-1]);

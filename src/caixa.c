@@ -74,6 +74,7 @@ void estadoCaixa(Caixa caixas[], int qtd_caixas) {
 
     if (!caixa_selecionado->aberto) {
         // Se o caixa está fechado, ele pode ser aberto
+        printf("\nCaixa %d Aberto!\n", id);
         caixa_selecionado->aberto = 1;
     } 
     else {
@@ -100,11 +101,12 @@ void estadoCaixa(Caixa caixas[], int qtd_caixas) {
 
         // Fecha o caixa
         caixa_selecionado->aberto = 0;
+        printf("\nCaixa %d Fechado!\n", id);
     }
 }
 
 Fila* getFila(Caixa* caixa) {
-    return caixa->fila;  // Retorna diretamente o ponteiro para a fila
+    return caixa->fila; 
 }
 
 bool getEstado(Caixa* caixa) {

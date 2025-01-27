@@ -19,6 +19,15 @@ void exibirClienteCadastrado(const Cliente* cliente) {
     printf("Prioridade: %d\n", cliente->prioridade);
 }
 
+const char* getNome(const Cliente* cliente) {
+    return cliente->nome;
+}
+
+const char* getCPF(const Cliente* cliente) {
+    return cliente->cpf;
+}
+
+
 int validarCPF(const char* cpf) {
     if (strlen(cpf) != 11) {
         printf("Erro: O CPF deve conter exatamente 11 dígitos.\n");
@@ -71,7 +80,7 @@ Cliente cadastrarCliente() {
     Cliente cliente = criarCliente(nome, cpf, prioridade, numeroItens);
 
     printf("\nCliente cadastrado com sucesso!\n");
-    exibirClienteCadastrado(&cliente);
+    // exibirClienteCadastrado(&cliente);
     
     return cliente;
 }

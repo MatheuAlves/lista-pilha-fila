@@ -19,5 +19,7 @@ Cliente criarCliente(const char* nome,const char* cpf, int prioridade, int numer
 void exibirCliente(const Cliente* cliente);
 Cliente cadastrarCliente();
 void exibirClienteCadastrado(const Cliente* cliente);
+const char* getNome(const Cliente* cliente);
+const char* getCPF(const Cliente* cliente);
 
 #endif

@@ -47,16 +47,18 @@ void enfileirar(Fila* fila, Cliente cliente) {
             fila->tras = novoNo;
         }
     }
-
-    printf("FILA--------------------------------- \n");
-    exibirFila(fila);
+    printf("\nCliente entrou na fila!\n");
+    // printf("FILA--------------------------------- \n");
+    // exibirFila(fila);
 }
 
 
 // Função para atender um cliente
 void atender(Fila* fila) {
+    const char *nome;
+    const char *cpf;
     if (filaVazia(fila)) {
-        printf("Fila vazia! Não há clientes para atender.\n");
+        printf("Fila vazia! Sem clientes para atender!\n");
         return;
     }
 
@@ -67,8 +69,9 @@ void atender(Fila* fila) {
         fila->tras = NULL; 
     }
 
-    exibirClienteCadastrado(&temp->cliente);
-    printf("Cliente Atendido!\n");
+    nome = getNome(&temp->cliente);
+    cpf = getCPF(&temp->cliente);
+    printf("\nCliente '%s', do cpf: '%s' atendido com sucesso!\n", nome, cpf);
     free(temp);
 }
 
@@ -86,7 +89,7 @@ void exibirFila(Fila* fila) {
 
     No* atual = fila->frente;
     while (atual != NULL) {
-        exibirClienteCadastrado(&atual->cliente); // Usando a função que já existe
+        exibirClienteCadastrado(&atual->cliente);
         atual = atual->proximo;
     }
 }
