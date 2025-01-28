@@ -14,7 +14,9 @@ int main() {
         caixas[i] = criarCaixa(i + 1);
     }
 
-    do {
+    printf("\nSupermercado Aberto! %d caixas disponíveis!\n", qtd_caixas);
+
+    do{
         printf("\n--- Menu ---\n");
         printf("1. Cadastrar Novo Cliente\n");
         printf("2. Atender Cliente\n");
